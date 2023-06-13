@@ -5,6 +5,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormComponent } from './components/form/form.component';
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { CartListComponent } from './components/medicines/cart-list/cart-list.component';
 import { CheckoutComponent } from './components/medicines/checkout/checkout.component';
 import { MedicinesComponent } from './components/medicines/medicines.component';
@@ -19,6 +20,7 @@ const routes: Routes = [  //generating lazy loading
 {"path": 'about-us', component: AboutUsComponent},
 {"path": 'contact-us', component: ContactUsComponent},
 {"path": 'user-profile', component: UserProfileComponent},
+{"path": 'log-out', component: LogoutComponent},
 
 {"path":'medicines', children: [
   {"path":'', component:MedicinesComponent},
