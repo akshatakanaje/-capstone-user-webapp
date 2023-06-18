@@ -1,1 +1,68 @@
-<p>cart-list works!</p>
+<div class="row w-100 m-0 mt-2">
+    <div class="col-12 col-sm-8 order-1 order-sm-0 mt-2 mt-sm-0">
+      <div *ngIf="medicinesService.cartMedicines.length === 0">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <!-- <img src="./../../../assets/empty.svg" alt="" class="img-fluid" width="256px" height="256px"> -->
+              <h5 class="card-title mt-2">
+                No Items in Cart
+              </h5>
+
+              <button class="btn btn-dark mt-4" routerLink="/medicines">Go to Medicines</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="medicinesService.cartMedicines.length !== 0">
+        <div class="card shadow-sm mb-2" *ngFor="let medicine of medicinesService.cartMedicines; index as idx">
+          <div class="card-body">
+            <div class="row w-100 m-0">
+              <div class="col-12 col-sm-2 d-flex justify-content-center align-items-center">
+                <img [src]="medicine['image']" [alt]="medicine['name']" class="img-fluid" width="128px" height="128px">
+              </div>
+              <div class="col-12 col-sm-10 mt-2 mt-sm-0">
+                <div class="d-flex flex-column">
+                  <h5 class="m-0 font-weight-bold card-title mb-1">
+                    {{ medicine["name"] }}
+                  </h5>
+                  <p class="card-text text-limit m-0 mb-1">
+                    {{ medicine["brandName"] }}
+                  </p>
+                  <p class="card-text m-0 mb-1">
+                    <span class="text-muted mr-2">Qty. :</span> 
+                    <span class="font-weight-bold mr-2">{{ medicine["quantity"] }}</span>
+                  </p>
+                </div>
+
+                <div class="d-flex align-items-center">
+                  <button type="button" class="btn btn-sm btn-dark me-2" (click)="addMedToWishlist(medicine, true, idx)" >Add to Whishlist</button>
+                  <button type="button" class="btn btn-sm btn-danger" (click)="removeMedicineFromCart(idx)">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-4 order-0 order-sm-1">
+      <div class="card shadow-sm sticky-top">
+        <div class="card-header bg-white">
+          <h5 class="card-title">Summary</h5>
+        </div>
+        <div class="card-body">
+          <div class="d-flex flex-column">
+            <p class="card-text d-flex justify-content-between m-0 mb-2">
+              <span class="text-muted">Total Items</span>
+              <span class="font-weight-bold">{{ totalItems || 0 }}</span>
+            </p>
+        </div>
+    </div>
+    <div class="card-footer bg-white border-0">
+      <button type="button" class="btn btn-sm btn-dark w-100" (click)="goTo('/medicines/checkout')" >
+        Proceed Next
+      </button>
+    </div>
+  </div>
+</div>
+</div>

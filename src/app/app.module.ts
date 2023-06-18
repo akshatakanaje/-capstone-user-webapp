@@ -9,7 +9,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LogoutComponent } from './components/logout/logout.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,13 +19,13 @@ import { LogoutComponent } from './components/logout/logout.component';
     LoginComponent,
     AboutUsComponent,
     ContactUsComponent,
-    UserProfileComponent,
-    LogoutComponent
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

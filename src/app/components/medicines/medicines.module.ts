@@ -5,6 +5,7 @@ import { CartListComponent } from './cart-list/cart-list.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MedicinesComponent } from './medicines.component';
+import { MedicinesService } from 'src/app/services/medicines.service';
 
 
 
@@ -18,6 +19,7 @@ import { MedicinesComponent } from './medicines.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  providers:[MedicinesService]
 })
 export class MedicinesModule { }
